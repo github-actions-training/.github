@@ -1,0 +1,12 @@
+{
+    "name": "Dotnet Build Workflow",
+    "description": "Builds and runs tests for a .NET solution. ",
+    "categories": [
+        "C#",
+        "ASP.NET"
+    ],
+    "filePatterns": [
+        ".*\\.csproj",
+        ".*\\.sln"
+    ]
+}
