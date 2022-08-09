@@ -11,6 +11,10 @@ on:
   # pull_request:
   #   branches: [ $default-branch ]
   workflow_call:
+    inputs:
+        artifact_name:
+          required: true
+          type: string
 
 jobs:
   build:
@@ -65,3 +69,18 @@ jobs:
       with:
         recreate: true
         path: code-coverage-results.md
+
+    - name: Package artifact
+      run: |
+        dotnet pack \
+        --include-source \
+        --configuration ${{ env.CONFIGURATION }} \
+        --no-restore \
+        -o artifacts \
+        -p:PackageVersion=${{ env.PACKAGE_VERSION }} \
+        -p:SymbolPackageFormat=snupkg
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.artifact_name }}
+        path: artifacts
