@@ -6,10 +6,11 @@ env:
   PACKAGE_SUFFIX: development
 
 on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+  # push:
+  #   branches: [ $default-branch ]
+  # pull_request:
+  #   branches: [ $default-branch ]
+  workflow_call:
 
 jobs:
   build:
