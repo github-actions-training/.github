@@ -50,3 +50,8 @@ jobs:
       with:
         name: ${{ inputs.artifact_name }}
         path: artifacts
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: infrastructure
+        path: infrastructure
